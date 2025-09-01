@@ -13,8 +13,8 @@ function App() {
   // }
   const fileInputRef = useRef();
   const inputref=useRef();
-  const [subject, setsubject] = useState(null);
-  const [message, setmessage] = useState(null);
+  const [subject, setsubject] = useState("");
+  const [message, setmessage] = useState("");
   const [file, setfile] = useState(null);
   const [emailList, setemailList] = useState([]);
   const [status, setstatus] = useState(false);
@@ -107,7 +107,7 @@ function App() {
       </div>
       <div className="flex flex-col justify-center text-center space-y-5 bg-green-500 px-8 py-3 ">
         <div className="bg-green-500 container flex flex-col items-center flex-wrap justify-center space-x-2">
-          <label htmlFor="subject" className="text-lg">
+          <label htmlFor="subject" className="text-xl md:text-2xl mb-2 font-semibold ">
             Subject:{" "}
           </label>
           <input
@@ -116,7 +116,7 @@ function App() {
             onChange={(e) => {
               setsubject(e.target.value);
             }}
-            className="bg-white w-sm  outline-none px-2 rounded py-2 text-lg"
+            className="bg-white w-3/4 md:w-1/3  outline-none px-2 rounded py-2 text-lg"
             type="text"
             placeholder="Enter subject message...."
             id="subject"
@@ -138,17 +138,17 @@ function App() {
             type="file"
             ref={fileInputRef}
             onChange={handlefile}
-            className=" border-3 p-2 border-dashed border-white file:mr-4 file:rounded-full file:border-0 file:bg-violet-50 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-violet-700 hover:file:bg-violet-100 hover:file:cursor-pointer dark:file:bg-violet-600 dark:file:text-violet-100 dark:hover:file:bg-violet-500 ..."
+            className=" w-full md:w-fit border-3 p-2 border-dashed border-white file:mr-4 file:rounded-full file:border-0 file:bg-violet-50 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-violet-700 hover:file:bg-violet-100 hover:file:cursor-pointer dark:file:bg-violet-600 dark:file:text-violet-100 dark:hover:file:bg-violet-500 ..."
           />
         </div>
         <div className="">Upload the email file in .xlsx format within 2MB</div>
         <div>
-          <p className="">Total email : {mailcount}</p>
+          <p className="text-lg md:text-xl">Total email : {mailcount}</p>
         </div>
         <div>
           <button
             onClick={handlesubmit}
-            className="bg-white text-black  hover:bg-zinc-100 hover:cursor-pointer px-2 py-1 rounded "
+            className="bg-blue-500 text-white px-4 py-2  hover:bg-blue-600 hover:cursor-pointer  rounded "
           >
             {status ? "Sending..." : "Send"}
           </button>
